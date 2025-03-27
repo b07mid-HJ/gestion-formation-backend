@@ -25,7 +25,7 @@ public class Formation {
     @Column(nullable = false)
     private Integer duree;
 
-    @Column(precision = 10, scale = 2)
+    @Column(precision = 10)
     private Double budget;
 
     @ManyToOne
