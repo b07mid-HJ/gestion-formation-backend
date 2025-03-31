@@ -17,15 +17,12 @@ public class Profil {
     @Column(nullable = false, length = 100)
     private String libelle;
 
-    @OneToMany(mappedBy = "profil")
-    private Set<Participant> participants;
 
     public Profil() {
     }
 
     public Profil(String libelle, Set<Participant> participants) {
         this.libelle = libelle;
-        this.participants = participants;
     }
 
     public String getLibelle() {
@@ -36,13 +33,7 @@ public class Profil {
         this.libelle = libelle;
     }
 
-    public Set<Participant> getParticipants() {
-        return participants;
-    }
 
-    public void setParticipants(Set<Participant> participants) {
-        this.participants = participants;
-    }
 
     public UUID getId() {
         return id;
