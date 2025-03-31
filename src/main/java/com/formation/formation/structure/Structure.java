@@ -17,15 +17,12 @@ public class Structure {
     @Column(nullable = false, length = 100)
     private String libelle;
 
-    @OneToMany(mappedBy = "structure")
-    private Set<Participant> participants;
 
     public Structure() {
     }
 
     public Structure(String libelle, Set<Participant> participants) {
         this.libelle = libelle;
-        this.participants = participants;
     }
 
     public String getLibelle() {
@@ -36,13 +33,6 @@ public class Structure {
         this.libelle = libelle;
     }
 
-    public Set<Participant> getParticipants() {
-        return participants;
-    }
-
-    public void setParticipants(Set<Participant> participants) {
-        this.participants = participants;
-    }
 
     public UUID getId() {
         return id;
