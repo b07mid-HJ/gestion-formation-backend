@@ -35,11 +35,9 @@ public class Formateur {
     @JoinColumn(name = "id_employeur")
     private Employeur employeur;
 
-    @OneToMany(mappedBy = "formateur")
-    private Set<Formation> formations;
 
     public enum FormateurType {
-        INTERNE, EXTERNE
+        interne, externe
     }
 
     public Formateur() {
@@ -53,7 +51,6 @@ public class Formateur {
         this.tel = tel;
         this.type = type;
         this.employeur = employeur;
-        this.formations = formations;
     }
 
     public String getNom() {
@@ -102,14 +99,6 @@ public class Formateur {
 
     public void setEmployeur(Employeur employeur) {
         this.employeur = employeur;
-    }
-
-    public Set<Formation> getFormations() {
-        return formations;
-    }
-
-    public void setFormations(Set<Formation> formations) {
-        this.formations = formations;
     }
 
     public UUID getId() {
