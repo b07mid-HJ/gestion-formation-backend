@@ -26,6 +26,10 @@ public class StructureService {
     }
 
     public Structure addStructure(Structure structure) {
+        Optional<Structure> existingStructure = structureRepository.findByLibelle(structure.getLibelle());
+        if (existingStructure.isPresent()) {
+            throw new RuntimeException("A structure with this name already exists");
+        }
         structureRepository.save(structure);
         return structure;
     }

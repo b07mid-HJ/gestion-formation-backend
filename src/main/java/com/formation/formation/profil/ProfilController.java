@@ -40,9 +40,14 @@ public class ProfilController {
     }
     
     @PostMapping
-    public ResponseEntity<Profil> createProfil(@RequestBody Profil profil) {
-        Profil createdProfil = profilService.addProfil(profil);
-        return new ResponseEntity<>(createdProfil, HttpStatus.CREATED);
+    public ResponseEntity<Object> createProfil(@RequestBody Profil profil) {
+        try {
+            Profil createdProfil = profilService.addProfil(profil);
+            return new ResponseEntity<>(createdProfil, HttpStatus.CREATED);
+        } catch (RuntimeException e) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
+        }
+        
     }
     
     @PutMapping

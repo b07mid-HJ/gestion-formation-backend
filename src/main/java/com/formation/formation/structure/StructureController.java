@@ -40,9 +40,13 @@ public class StructureController {
     }
     
     @PostMapping
-    public ResponseEntity<Structure> createStructure(@RequestBody Structure structure) {
-        Structure createdStructure = structureService.addStructure(structure);
-        return new ResponseEntity<>(createdStructure, HttpStatus.CREATED);
+    public ResponseEntity<Object> createStructure(@RequestBody Structure structure) {
+        try {
+            Structure createdStructure = structureService.addStructure(structure);
+            return new ResponseEntity<>(createdStructure, HttpStatus.CREATED);
+        } catch (RuntimeException e) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
+        }
     }
     
     @PutMapping

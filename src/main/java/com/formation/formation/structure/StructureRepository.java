@@ -9,4 +9,5 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface StructureRepository extends JpaRepository<Structure, UUID> {
     Optional<Structure> findById(UUID id);
+    Optional<Structure> findByLibelle(String libelle);
 } 

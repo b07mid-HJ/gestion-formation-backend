@@ -11,5 +11,6 @@ import org.springframework.stereotype.Repository;
 public interface ProfilRepository extends JpaRepository<Profil, UUID> {
 
     Optional<Profil> findById(UUID id);
+    Optional<Profil> findByLibelle(String libelle);
 
 }

@@ -26,6 +26,10 @@ public class ProfilService {
     }
 
     public Profil addProfil(Profil profil){
+        Optional<Profil> existingProfil = profilRepository.findByLibelle(profil.getLibelle());
+        if(existingProfil.isPresent()){
+            throw new RuntimeException("A profil with this name already exists");
+        }
         profilRepository.save(profil);
         return profil;
     }
