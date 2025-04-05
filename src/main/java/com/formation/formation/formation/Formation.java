@@ -36,7 +36,7 @@ public class Formation {
     @JoinColumn(name = "id_formateur")
     private Formateur formateur;
 
-    @ManyToMany
+    @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(
         name = "formation_participant",
         joinColumns = @JoinColumn(name = "id_formation"),

@@ -3,6 +3,9 @@ package com.formation.formation.participant;
 import jakarta.persistence.*;
 import java.util.UUID;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonIdentityReference;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import com.formation.formation.formation.Formation;
 import com.formation.formation.profil.Profil;
 import com.formation.formation.structure.Structure;
@@ -36,6 +39,9 @@ public class Participant {
     @JoinColumn(name = "id_profil")
     private Profil profil;
 
+    
+    @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
+    @JsonIdentityReference(alwaysAsId = true)
     @ManyToMany(mappedBy = "participants")
     private Set<Formation> formations;
 

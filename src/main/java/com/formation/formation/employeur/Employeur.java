@@ -17,15 +17,12 @@ public class Employeur {
     @Column(nullable = false, length = 100)
     private String nomemployeur;
 
-    @OneToMany(mappedBy = "employeur")
-    private Set<Formateur> formateurs;
 
     public Employeur() {
     }
 
     public Employeur(String nomemployeur, Set<Formateur> formateurs) {
         this.nomemployeur = nomemployeur;
-        this.formateurs = formateurs;
     }
 
     public String getNomemployeur() {
@@ -36,19 +33,9 @@ public class Employeur {
         this.nomemployeur = nomemployeur;
     }
 
-    public Set<Formateur> getFormateurs() {
-        return formateurs;
-    }
-
-    public void setFormateurs(Set<Formateur> formateurs) {
-        this.formateurs = formateurs;
-    }
 
     public UUID getId() {
         return id;
     }
-    
-    public void setId(UUID id) {
-        this.id = id;
-    }
+
 }
