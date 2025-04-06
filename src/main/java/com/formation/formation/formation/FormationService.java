@@ -1,6 +1,5 @@
 package com.formation.formation.formation;
 
-import java.util.HashSet;
 import java.util.List;
 import java.util.Optional;
 import java.util.Set;
@@ -9,9 +8,7 @@ import java.util.stream.Collectors;
 
 import org.springframework.stereotype.Component;
 
-import com.formation.formation.domaine.Domaine;
 import com.formation.formation.domaine.DomaineService;
-import com.formation.formation.formateur.Formateur;
 import com.formation.formation.formateur.FormateurService;
 import com.formation.formation.participant.Participant;
 import com.formation.formation.participant.ParticipantRepository;
