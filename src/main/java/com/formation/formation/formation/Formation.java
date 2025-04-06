@@ -3,6 +3,9 @@ package com.formation.formation.formation;
 import jakarta.persistence.*;
 import java.util.UUID;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonIdentityReference;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import com.formation.formation.domaine.Domaine;
 import com.formation.formation.formateur.Formateur;
 import com.formation.formation.participant.Participant;
@@ -36,6 +39,8 @@ public class Formation {
     @JoinColumn(name = "id_formateur")
     private Formateur formateur;
 
+    @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
+    @JsonIdentityReference(alwaysAsId = true)
     @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(
         name = "formation_participant",
